@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch",
+      "mcp__claude-in-chrome",
+      "Bash(yt-dlp:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(ffprobe:*)",
+      "Bash(magick:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(python3:*)",
+      "Bash(/tmp/reelvenv/bin/python:*)",
+      "Bash(agent-reach:*)",
+      "Bash(opencli:*)",
+      "Bash(open:*)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\":*)"
+    ]
+  }
+}

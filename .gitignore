@@ -1,0 +1,15 @@
+node_modules
+.env
+.DS_Store
+.claude/settings.local.json
+
+# media: GBs, local only (the real copies live on the platforms / in each client's output folder)
+/clients/*/studio/*
+!/clients/*/studio/reelkit
+!/clients/*/studio/PALETTE.md
+/clients/*/img/
+/clients/*/outbox/
+/clients/*/video/
+/clients/*/pack/
+/clients/*/videos/
+kit/reelkit/__pycache__/
