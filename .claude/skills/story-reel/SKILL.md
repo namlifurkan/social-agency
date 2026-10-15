@@ -74,7 +74,8 @@ reveal in one sentence, there is no reel.
 
 - 6–9 beats, one idea each, A2 English, ≤ 8 words a line on screen.
 - Each beat is a **full-bleed real photo or video clip**: film grain, vignette, Ken Burns, the
-  client's accent. The client's wordmark sits at the top of every frame (PLAYBOOK "Look").
+  client's accent (`brand.json` `colors.accent`). The client's logo (`brand.json` `logo`) sits at the
+  top of every frame (PLAYBOOK "Look").
 - **Colour or B&W is chosen per reel, by the content (founder, 2026-10-10: "hep siyah meyah mı
   gideceğiz").** Colour when the source is colourful and the colour is part of the story (a pink
   music video, a red carpet, a live show, a TV studio): `Clip(gray=False)` plus the soft grade

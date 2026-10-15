@@ -1,1 +1,6 @@
-{ "narrator_voice": "" }
+{
+  "narrator_voice": "",
+  "colors": { "bg": "", "ink": "", "accent": "" },
+  "fonts": { "display": "", "body": "" },
+  "logo": "logo.svg"
+}

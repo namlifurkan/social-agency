@@ -9,7 +9,9 @@ What the client is, its site/app, the accounts we post for.
 Who watches, which topics travel, what never to say.
 
 ## Look
-Wordmark, accent colour, palette, fonts (files in `fonts/`). Narrator voice id goes in `brand.json`.
+The values live in `brand.json`: `colors` (hex for `bg`, `ink`, `accent`), `fonts` (family names,
+TTF/OTF files in `fonts/`), `logo` (file in this folder, SVG or transparent PNG) and
+`narrator_voice`. Here: how the brand should feel, where the wordmark sits, what never to do.
 
 ## The close
 How a reel ends (CTA line, badges, LINK IN BIO, or nothing).

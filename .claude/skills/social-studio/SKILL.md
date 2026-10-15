@@ -17,7 +17,9 @@ the premise itself is broken.
 ## 0. Set up
 
 Pick the client (`clients/<client>/`). No folder yet → copy `clients/_template/` and fill
-`PLAYBOOK.md`, `VOICE.md`, `brand.json` with the founder before the first post. Read the
+`PLAYBOOK.md`, `VOICE.md`, `brand.json` with the founder before the first post. Ask for the
+logo file, three colours (background, text, accent) and two fonts; save the logo and font files
+into the client folder and fill `brand.json`. Read the
 client's `PLAYBOOK.md`, `VOICE.md` and `HOOKS.md` (if it has one) while the reporter works.
 
 Slug = a short kebab-case name for the story (`pitchfork-tyga-zero`). Create
@@ -129,7 +131,7 @@ render against them.
    a huge "75" filled with five Police covers, "5 albums in 5 years. Then he left."
 4. **3–5 slides.** Fewer, stronger slides beat a full carousel.
 
-The client's look (PLAYBOOK "Look": palette, fonts, wordmark) sits on top of these. Still in
+The client's look (`brand.json`: colors, fonts, logo; PLAYBOOK "Look" for how to use them) sits on top of these. Still in
 force for every client (craft, not copy):
 
 - **Never all-white.** A dark overlay under text, light text, one accent per slide.

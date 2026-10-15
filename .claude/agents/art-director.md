@@ -84,9 +84,10 @@ with headless Chrome:
   --window-size=1080,1350 --screenshot=out/carousel/01.png slides/01.html
 ```
 
-1080×1350 (4:5) for the Instagram feed, 1080×1920 for 9:16, 1600×900 for an X image. Fonts go in
-`clients/<client>/fonts/` (download TTFs from github.com/google/fonts), loaded with
-`@font-face`. Images are local files from `img/`. Build a contact sheet
+1080×1350 (4:5) for the Instagram feed, 1080×1920 for 9:16, 1600×900 for an X image. The brand
+values come from `clients/<client>/brand.json`: `colors` become CSS variables, `fonts` name the
+families whose files sit in `clients/<client>/fonts/` (missing → download TTFs from
+github.com/google/fonts), loaded with `@font-face`; `logo` is the wordmark file. Images are local files from `img/`. Build a contact sheet
 (`magick out/carousel/*.png -resize x450 +append out/sheet-carousel.jpg`).
 
 The client's wordmark goes on every slide if its PLAYBOOK says so; keep its corner clear, and
