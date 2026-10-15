@@ -30,7 +30,7 @@ what a client's PLAYBOOK explicitly hands to us, and any admin dashboard (Cloudf
 
 | Path | What |
 |---|---|
-| `.claude/skills/` | `client-setup` (onboarding interview), `story-reel`, `film-reel`, `social-studio`: the generic craft |
+| `.claude/skills/` | `client-setup` (onboarding interview), `story-reel`, `film-reel`, `motion-video`, `social-studio`: the generic craft |
 | `.claude/agents/` | `social-researcher` (reporter), `art-director` |
 | `kit/reelkit/` | Shared reel toolkit: `clips.py`, `vo.py`, `voice.py` (ElevenLabs voice design), `layout.py`, `faces.swift` |
 | `kit/reference/` | Reference reel builds (scripts and notes only) to copy into a client's studio |
