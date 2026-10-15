@@ -1,0 +1,6 @@
+{
+  "narrator_voice": "",
+  "colors": { "bg": "#FAF7F4", "ink": "#2B231D", "accent": "#F27A23" },
+  "fonts": { "display": "Archivo", "body": "Archivo" },
+  "logo": "logo.svg"
+}

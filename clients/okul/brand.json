@@ -1,0 +1,6 @@
+{
+  "narrator_voice": "",
+  "colors": { "bg": "#FFFFFF", "ink": "#273444", "accent": "#FF495C" },
+  "fonts": { "display": "Raleway", "body": "Source Sans 3" },
+  "logo": "logo.svg"
+}
