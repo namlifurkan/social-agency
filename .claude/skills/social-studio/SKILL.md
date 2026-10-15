@@ -16,10 +16,8 @@ the premise itself is broken.
 
 ## 0. Set up
 
-Pick the client (`clients/<client>/`). No folder yet → copy `clients/_template/` and fill
-`PLAYBOOK.md`, `VOICE.md`, `brand.json` with the founder before the first post. Ask for the
-logo file, three colours (background, text, accent) and two fonts; save the logo and font files
-into the client folder and fill `brand.json`. Read the
+Pick the client (`clients/<client>/`). No folder yet, or `brand.json`/PLAYBOOK fields empty or
+marked "Ask at setup" → run `/client-setup <client>` first. Read the
 client's `PLAYBOOK.md`, `VOICE.md` and `HOOKS.md` (if it has one) while the reporter works.
 
 Slug = a short kebab-case name for the story (`pitchfork-tyga-zero`). Create

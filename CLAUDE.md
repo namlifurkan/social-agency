@@ -22,9 +22,9 @@ what a client's PLAYBOOK explicitly hands to us, and any admin dashboard (Cloudf
 
 | Path | What |
 |---|---|
-| `.claude/skills/` | `story-reel`, `film-reel`, `social-studio`: the generic craft |
+| `.claude/skills/` | `client-setup` (onboarding interview), `story-reel`, `film-reel`, `social-studio`: the generic craft |
 | `.claude/agents/` | `social-researcher` (reporter), `art-director` |
-| `kit/reelkit/` | Shared reel toolkit: `clips.py`, `vo.py`, `layout.py`, `faces.swift` |
+| `kit/reelkit/` | Shared reel toolkit: `clips.py`, `vo.py`, `voice.py` (ElevenLabs voice design), `layout.py`, `faces.swift` |
 | `clients/<client>/` | One brand: `PLAYBOOK.md`, `VOICE.md`, `STRATEGY.md`, `LEARNINGS.md`, `brand.json`, `fonts/`, `studio/<slug>/` |
 | `clients/_template/` | Copy for a new client |
 | `.env` | `ELEVENLABS_API_KEY` (gitignored) |
@@ -34,8 +34,9 @@ what a client's PLAYBOOK explicitly hands to us, and any admin dashboard (Cloudf
 1. Which client? The founder names it, or it is obvious from the topic. Unsure → ask.
 2. Read `clients/<client>/PLAYBOOK.md` (audience, look, close, delivery, publishing), then
    `STRATEGY.md` and `LEARNINGS.md`. The playbook wins over the skills.
-3. New client → `cp -R clients/_template clients/<name>` and fill the playbook, voice and narrator
-   with the founder before the first post.
+3. New client, a new team member, or fields marked "Ask at setup" → `/client-setup <client>`: an
+   interview that checks the ElevenLabs key, fills the brand, playbook and close, and sets up the
+   narrator voice.
 
 Nothing is published unless the client's PLAYBOOK has a publishing section.
 

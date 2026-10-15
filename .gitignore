@@ -12,4 +12,5 @@ node_modules
 /clients/*/video/
 /clients/*/pack/
 /clients/*/videos/
+/clients/*/voice/
 kit/reelkit/__pycache__/

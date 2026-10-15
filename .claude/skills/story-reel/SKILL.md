@@ -156,8 +156,8 @@ Build a contact sheet (`magick … -resize x360 +append`) and look at it before 
 ## 5. Narration (ElevenLabs)
 
 - **Voice: the client's own designed voice**, `narrator_voice` in `clients/<client>/brand.json`
-  (`vo.py` finds it by walking up from the reel folder). A new client gets one designed with
-  ElevenLabs Voice Design before its first reel. Never use a library voice the internet knows
+  (`vo.py` finds it by walking up from the reel folder). No voice yet → `/client-setup <client>`,
+  which designs one with ElevenLabs Voice Design (`reelkit/voice.py`) before the first reel. Never use a library voice the internet knows
   (Brian, Liam, Adam, Jessica, Matilda, Sarah, the "Peter" narrator), and never a real person's voice.
 - Model `eleven_multilingual_v2`, settings stability 0.45, similarity 0.8, style 0.15, speaker
   boost on. **One request for the whole narration** (`reelkit/vo.py` `generate(BEATS, dir)`):
