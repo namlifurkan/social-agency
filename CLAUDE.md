@@ -5,7 +5,15 @@
 The founder's social media agency: story reels, film reels, carousels, research, footage and image
 hunting, for any brand. The craft was first built in the Riffiter repo (`~/Desktop/project/riffiter`,
 its `social/` folder and skills); this is a brand-free copy made on 2026-10-14. **The Riffiter
-repo is read-only from here**: its builds are reference examples, nothing in it is changed.
+repo is read-only from here**: nothing in it is changed. The scripts of its reference builds are
+copied into `kit/reference/`, so the team can use them without it.
+
+## Who uses it
+
+The founder on a Mac (CLI) and the team on **Windows, in the Claude desktop app** (Code tab, a
+local folder). Talk to the team in plain Turkish, no jargon. Everything must run on both: the
+shell on Windows is Git Bash, Python is `python` there (`python3` on the Mac), Chrome and venv
+paths differ (see the skills). A user can add the API key in the app's Terminal (Ctrl+`).
 
 ## Agents roam the web freely
 
@@ -25,8 +33,10 @@ what a client's PLAYBOOK explicitly hands to us, and any admin dashboard (Cloudf
 | `.claude/skills/` | `client-setup` (onboarding interview), `story-reel`, `film-reel`, `social-studio`: the generic craft |
 | `.claude/agents/` | `social-researcher` (reporter), `art-director` |
 | `kit/reelkit/` | Shared reel toolkit: `clips.py`, `vo.py`, `voice.py` (ElevenLabs voice design), `layout.py`, `faces.swift` |
+| `kit/reference/` | Reference reel builds (scripts and notes only) to copy into a client's studio |
 | `clients/<client>/` | One brand: `PLAYBOOK.md`, `VOICE.md`, `STRATEGY.md`, `LEARNINGS.md`, `brand.json`, `fonts/`, `studio/<slug>/` |
 | `clients/_template/` | Copy for a new client |
+| `vault/` | The agency's shared memory (Obsidian-compatible, Turkish notes) |
 | `.env` | `ELEVENLABS_API_KEY` (gitignored) |
 
 ## Every job starts with the client
@@ -42,4 +52,23 @@ Nothing is published unless the client's PLAYBOOK has a publishing section.
 
 ## Vault
 
-No vault folder yet; ask the founder before writing notes. Commit/push only when asked.
+`vault/` in this repo, shared with the team through git. Agency-wide knowledge only;
+client-specific facts stay in `clients/<client>/` (PLAYBOOK, VOICE, LEARNINGS).
+
+Read `vault/README.md` and the relevant hub before a non-trivial job. Write a note, without being
+asked, when:
+
+| What | Where |
+|---|---|
+| A decision (format, tool, founder call) | `vault/decisions/YYYY-MM-DD-baslik.md` |
+| A solved problem (render bug, broken tool) | `vault/incidents/YYYY-MM-DD-baslik.md` |
+| Platform or craft knowledge (sizes, what travels) | `vault/domain/konu.md` |
+| A working habit | `vault/conventions/konu.md` |
+| Who on the team cares about what | `vault/people/isim.md` |
+
+Note rules: Turkish; one idea per note; frontmatter `title`, `date`, `tags`; first line
+`> Proje: [[Social Agency]] · Hub: [[Social Agency — <Kategori>]]`; a `## Related` section with at
+least one `[[sibling-note]]`; add the note to its hub's `## Notlar`. No links to the founder's
+other vaults. Tell the user which note was written.
+
+Commit/push only when asked.
