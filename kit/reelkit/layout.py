@@ -1,4 +1,4 @@
-import json, os, subprocess
+import json, os, shutil, subprocess
 from functools import lru_cache
 
 W, H = 1080, 1920
@@ -21,13 +21,28 @@ def load_faces(folder, names):
     known = json.load(open(cache)) if os.path.exists(cache) else {}
     todo = [n for n in names if n not in known]
     if todo:
-        out = subprocess.run(["swift", os.path.join(HERE, "faces.swift"), *[os.path.join(folder, n) for n in todo]],
-                             capture_output=True, text=True, check=True).stdout
-        for line in out.strip().splitlines():
-            path, boxes = line.split("\t")
-            known[os.path.basename(path)] = json.loads(boxes)
+        known.update(_detect([os.path.join(folder, n) for n in todo]))
         json.dump(known, open(cache, "w"), indent=1)
     return known
+
+
+def _detect(paths):
+    if shutil.which("swift"):
+        out = subprocess.run(["swift", os.path.join(HERE, "faces.swift"), *paths], capture_output=True, text=True, check=True).stdout
+        return {os.path.basename(p): json.loads(b) for p, b in (line.split("\t") for line in out.strip().splitlines())}
+    # ponytail: OpenCV Haar cascade off macOS, misses profiles and small faces; swap for a DNN detector if text lands on faces
+    import cv2, numpy as np
+    cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+    found = {}
+    for p in paths:
+        im = cv2.imdecode(np.fromfile(p, np.uint8), cv2.IMREAD_GRAYSCALE)
+        if im is None:
+            found[os.path.basename(p)] = []
+            continue
+        h, w = im.shape
+        boxes = cascade.detectMultiScale(im, 1.1, 6, minSize=(w // 25, w // 25))
+        found[os.path.basename(p)] = [[round(x / w, 3), round(y / h, 3), round(bw / w, 3), round(bh / h, 3)] for x, y, bw, bh in (boxes.tolist() if len(boxes) else [])]
+    return found
 
 
 def _crop(sw, sh, w, h, focus, z):

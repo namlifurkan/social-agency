@@ -5,7 +5,6 @@ node_modules
 
 # media: GBs, local only (the real copies live on the platforms / in each client's output folder)
 /clients/*/studio/*
-!/clients/*/studio/reelkit
 !/clients/*/studio/PALETTE.md
 /clients/*/img/
 /clients/*/outbox/
@@ -14,3 +13,4 @@ node_modules
 /clients/*/videos/
 /clients/*/voice/
 kit/reelkit/__pycache__/
+/vault/.obsidian/

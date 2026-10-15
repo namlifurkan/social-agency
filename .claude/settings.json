@@ -15,7 +15,15 @@
       "Bash(agent-reach:*)",
       "Bash(opencli:*)",
       "Bash(open:*)",
-      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\":*)"
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\":*)",
+      "Bash(python:*)",
+      "Bash(py:*)",
+      "Bash(/tmp/reelvenv/Scripts/python:*)",
+      "Bash(start:*)",
+      "Bash(\"/c/Program Files/Google/Chrome/Application/chrome.exe\":*)"
     ]
+  },
+  "env": {
+    "PYTHONUTF8": "1"
   }
 }

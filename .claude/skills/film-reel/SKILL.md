@@ -7,10 +7,10 @@ description: Build a film reel for any client — a 9:16, ~60 s MUBI-style mini 
 
 The sibling of the story reel (story-reel skill). Same delivery and scheduling (the client's
 PLAYBOOK), a different film. Read `clients/<client>/PLAYBOOK.md` first. Founder, 2026-10-10: "hep newstan gidiyoruz", so this one is quiet, artful and evergreen.
-The first build, `~/Desktop/project/riffiter/social/studio/2026-10-14-reel-stick-season/` (Noah Kahan, Strafford VT), is
+The first build, `kit/reference/film-reel-stick-season/` (Noah Kahan, Strafford VT; scripts and notes only), is
 the reference: the founder called the video good ("güzel video") and did not like the topic; it was posted 10-14.
 Copy its `make.py` into `clients/<client>/studio/` for a new film and swap the shots, voices,
-texts, song and brand marks. Studio folders live only on this Mac.
+texts, song and brand marks. Studio folders live only on the machine that made them.
 
 ## The bar
 
@@ -67,7 +67,7 @@ moment). Clips matter more than photos.
   --extractor-args "youtube:player_client=web_embedded" -o cap-<id> <url>`, then read
   `events[].segs[]` (`tStartMs + tOffsetMs`). Cut each line just before its first word and
   after its last; split a line around a mumble ("you'll recognize… you") instead of keeping it.
-  Local `whisper` is broken on this Mac (numba/NumPy); do not spend time on it.
+  Local `whisper` was broken on the founder's Mac (numba/NumPy); do not spend time on it.
 - `VOICES = [(timeline_t, src, a, b)]`; lip-synced shots start the picture `0.2 s` before the
   voice (`src_start = a − (voice_t − shot_t0)`).
 - Subtitles are the speaker's words, verbatim minus filler ("like", "um"), max ~2 lines, split at
@@ -111,7 +111,7 @@ moment). Clips matter more than photos.
 
 ## 8. Render, check, deliver
 
-- `/tmp/reelvenv/bin/python make.py 3.5 12 27 43` renders single check frames into `chk/`;
+- `/tmp/reelvenv/bin/python make.py 3.5 12 27 43` (Windows: `/tmp/reelvenv/Scripts/python`) renders single check frames into `chk/`;
   look at a strip of them before the full render (~3.5 min for 60 s).
 - Deliver exactly as story-reel §10 and the client's PLAYBOOK, with two differences: no
   AI-generated label (there is no AI voice), and the caption lists the clip sources ("Clips:

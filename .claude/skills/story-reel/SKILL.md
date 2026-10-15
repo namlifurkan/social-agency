@@ -11,12 +11,14 @@ narrator, the brand marks, the close, the delivery folder and how (or whether) w
 this skill and the playbook differ, the playbook wins.
 
 The working reference build is
-`~/Desktop/project/riffiter/social/studio/2026-10-05-reel-olivia-paramore/` (`make.py` = visuals + audio mix,
-`vo.py` = narration; read-only examples in the Riffiter repo, never edit them there), wired to
-the shared `kit/reelkit/` (`vo.py`, `layout.py`, `faces.swift`, `clips.py`). Each client's
-`studio/reelkit` is a symlink to it. Copy that folder into
+`kit/reference/story-reel-olivia-paramore/` (`make.py` = visuals + audio mix, `vo.py` =
+narration; scripts only, the Riffiter build's media is not in the repo; `R` in them points at the
+Riffiter repo for its fonts and marks, swap in the client's `brand.json`), wired to the shared
+`kit/reelkit/` (`vo.py`, `layout.py`, `faces.swift`, `clips.py`) by a relative `sys.path` to
+`kit/reelkit`. Copy that folder into
 `clients/<client>/studio/<post-date>-reel-<slug>/`, swap the story, the photos, the songs, the
-narration, the wordmark and the close. Studio folders are gitignored; they live only on this Mac.
+narration, the wordmark and the close. Studio folders are gitignored; they live only on the
+machine that made them.
 
 A place portrait with the artist's own voice and no narrator is a different film: use the
 **film-reel** skill (2026-10-10).
@@ -25,7 +27,7 @@ A place portrait with the artist's own voice and no narrator is a different film
 
 A second format built with the same kit: a **thesis question** ("Why do so many songs now start
 right on the hook?") argued in 60–75 s, instead of one reveal. Reference build:
-`~/Desktop/project/riffiter/social/studio/2026-10-17-reel-chorus-first/` (`essay.py` = montage helpers, `make.py` = scenes).
+`kit/reference/essay-reel-chorus-first/` (`essay.py` = montage helpers, `make.py` = scenes).
 Everything above still applies (narrator, two sources, safe zone, no text on faces, the mix, the
 close); what changes:
 - **Every narrated line is shown, literally.** The noun the narrator says gets 2–5 real images or
@@ -79,7 +81,7 @@ reveal in one sentence, there is no reel.
 - **Colour or B&W is chosen per reel, by the content (founder, 2026-10-10: "hep siyah meyah mı
   gideceğiz").** Colour when the source is colourful and the colour is part of the story (a pink
   music video, a red carpet, a live show, a TV studio): `Clip(gray=False)` plus the soft grade
-  in `~/Desktop/project/riffiter/social/studio/2026-10-10-reel-adela/make.py` `grade()` (saturation ×0.85, blacks lifted to 0.05, warm
+  in `kit/reference/story-reel-adela/make.py` `grade()` (saturation ×0.85, blacks lifted to 0.05, warm
   `[1.04, 1.0, 0.93]`). B&W when the story is archive or the photos are old and mixed. A reel may
   mix them: B&W for the past, colour for now. Write the choice in the ledger's Device column.
   ADÉLA (10-10) ran colour on Instagram/X/Threads and B&W on TikTok/Shorts as a first A/B (the
@@ -96,7 +98,8 @@ reveal in one sentence, there is no reel.
   the founder called it overdone, and it pushed the text up onto faces. `reelkit/layout.py`
   holds the numbers (`safe_right(y)`, `center_x(y)`); `fit()` shrinks a line that does not fit.
 - **No text on a face (founder, 2026-10-06).** `reelkit/layout.py` reads each photo's faces once
-  with Apple Vision (`reelkit/faces.swift`, cached in the reel folder's `faces.json`) and
+  with Apple Vision on a Mac (`reelkit/faces.swift`), OpenCV elsewhere (`opencv-python-headless<5`;
+  misses profiles, so look at the frames) ( cached in the reel folder's `faces.json`) and
   `best_dy()` slides the crop so no face larger than 60 px sits in the scene's text bands. Every
   photo scene passes `bands` = where its text is (`LOWER_BAND` for bottom text, both bands when
   a title sits on top). A close-up that is too big for the gap between bands (a laughing
@@ -217,6 +220,9 @@ instead of squeezing the gaps. Crop the close frame at full size and look at it 
 python3 -m venv /tmp/reelvenv && /tmp/reelvenv/bin/pip -q install numpy pillow
 cd clients/<client>/studio/<date>-reel-<slug> && /tmp/reelvenv/bin/python make.py   # ~80 s
 ```
+
+Windows (Git Bash): `python` instead of `python3`, the venv's interpreter is
+`/tmp/reelvenv/Scripts/python`, and add `"opencv-python-headless<5"` to the pip install.
 
 - Pull a frame strip at the key moments (hook, each beat, the device, the close) and look at it:
   faces visible, no text overflow, nothing crossed by the centre seam, names typing on their word.

@@ -9,7 +9,7 @@ the manager when the brief would make a weak image. Say so plainly, give the rea
 the better version. You also concede when the manager's point is better. Neither of you is
 there to be agreeable; the post is.
 
-Working directory: the agency root (`~/Desktop/project/social-agency`). Read first: the brief
+Working directory: the agency root (the repo folder). Read first: the brief
 you are handed, `clients/<client>/studio/<slug>/dossier.md`, the client's `VOICE.md` (how text on
 a slide sounds) and `PLAYBOOK.md` (its look and its renderer). You may browse the web freely for
 references, fonts and images.
@@ -80,6 +80,8 @@ End with which one you would ship and why. Then stop and wait for the manager.
 with headless Chrome:
 
 ```bash
+# Mac: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+# Windows (Git Bash): "/c/Program Files/Google/Chrome/Application/chrome.exe"
 "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars \
   --window-size=1080,1350 --screenshot=out/carousel/01.png slides/01.html
 ```

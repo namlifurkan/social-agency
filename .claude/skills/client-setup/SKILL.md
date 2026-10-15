@@ -15,9 +15,13 @@ look first, then confirm. Use AskUserQuestion for choices, plain questions for f
   `python3 kit/reelkit/voice.py check`. Missing or 401 → walk them through it:
   elevenlabs.io → sign in → Developers → API Keys → Create key, with access to Text to Speech,
   Voices (read + write) and Voice Generation. Ask them to add it themselves so the key stays out of
-  the chat: `! echo 'ELEVENLABS_API_KEY=sk_...' >> .env`. Run `check` again.
-- Tools: `ffmpeg`, `yt-dlp`, `magick`, `python3`, Google Chrome. Missing → `brew install <tool>`
-  (ask first).
+  the chat: `echo 'ELEVENLABS_API_KEY=sk_...' >> .env`, typed in the desktop app's Terminal
+  (title bar → Terminal, or Ctrl+`), or with a `!` prefix in the CLI. Run `check` again.
+- Tools: `git`, `ffmpeg`, `yt-dlp`, `magick`, Python 3, Google Chrome. Missing → ask, then
+  Mac: `brew install <tool>`; Windows: `winget install <id>` (Git.Git, Python.Python.3.12,
+  Gyan.FFmpeg, yt-dlp.yt-dlp, ImageMagick.ImageMagick, Google.Chrome) and reopen the app.
+  On Windows the shell is Git Bash and Python is `python`, not `python3`; use that in every command
+  below.
 
 ## 2. Client folder
 
@@ -53,7 +57,7 @@ The voice lives on the person's own ElevenLabs account; its id goes in `brand.js
   "native Turkish, Istanbul accent", pace, warmth). Sample text: 100–1000 characters of the
   client's own copy, including the brand name. Then
   `python3 kit/reelkit/voice.py design "<desc>" "<text>" clients/<client>/voice/` makes three
-  previews; play them with `afplay`, let them choose, then `voice.py save <generated_voice_id>
+  previews; play them (`afplay` on Mac, `start` on Windows), let them choose, then `voice.py save <generated_voice_id>
   "<Client> narrator" "<desc>"` prints the voice id. Not happy → change the description, run again.
 - **Use one they already have**: `voice.py list`, they pick by name.
 - **Clone their own voice**: only a voice they have the right to use (their own, with consent).
